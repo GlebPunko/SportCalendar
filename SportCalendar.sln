@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.API", "SportCalendar.API\SportCalendar.API.csproj", "{A69BB301-0290-47E8-AB18-4D42FAAC79FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.Application", "SportCalendar.Application\SportCalendar.Application.csproj", "{861CC76C-AE1F-4926-9565-ABA73E651E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.Entity", "SportCalendar.Entity\SportCalendar.Entity.csproj", "{E7B86F5C-5D5A-44AF-BCDB-4CD2396B6414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.DataAccess", "SportCalendar.DataAccess\SportCalendar.DataAccess.csproj", "{734DEDEE-7343-4405-906A-32F0BAA7A367}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A69BB301-0290-47E8-AB18-4D42FAAC79FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69BB301-0290-47E8-AB18-4D42FAAC79FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69BB301-0290-47E8-AB18-4D42FAAC79FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69BB301-0290-47E8-AB18-4D42FAAC79FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861CC76C-AE1F-4926-9565-ABA73E651E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861CC76C-AE1F-4926-9565-ABA73E651E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861CC76C-AE1F-4926-9565-ABA73E651E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861CC76C-AE1F-4926-9565-ABA73E651E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B86F5C-5D5A-44AF-BCDB-4CD2396B6414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B86F5C-5D5A-44AF-BCDB-4CD2396B6414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B86F5C-5D5A-44AF-BCDB-4CD2396B6414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B86F5C-5D5A-44AF-BCDB-4CD2396B6414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734DEDEE-7343-4405-906A-32F0BAA7A367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734DEDEE-7343-4405-906A-32F0BAA7A367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734DEDEE-7343-4405-906A-32F0BAA7A367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734DEDEE-7343-4405-906A-32F0BAA7A367}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96759CA7-A754-466A-82AB-06704C2F6A46}
+	EndGlobalSection
+EndGlobal
