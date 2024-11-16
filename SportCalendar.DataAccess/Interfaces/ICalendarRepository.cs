@@ -1,5 +1,4 @@
-﻿
-using SportCalendar.Entity;
+﻿using SportCalendar.Entity;
 
 namespace SportCalendar.DataAccess.Interfaces
 {

@@ -6,10 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Mapper\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="DI\" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportCalendar.DataAccess\SportCalendar.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
