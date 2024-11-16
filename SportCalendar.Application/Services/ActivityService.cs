@@ -27,7 +27,7 @@ namespace SportCalendar.Application.Services
             if (string.IsNullOrEmpty(activity.ActivityName) || activity.ActivityUnitId <= 0)
                 throw new Exception("model is bad."); // TODO Will be validate
 
-            var isSuccess = await _activateRepository.AddActivity(_mapper.Map<Activity>(activity));
+            var isSuccess = await _activateRepository.AddActivity(_mapper.Map<ActivityEntity>(activity));
 
             if (!isSuccess)
                 throw new Exception("Activity is not added!");// TODO Will be prepare in exMiddleware

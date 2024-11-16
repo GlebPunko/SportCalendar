@@ -8,8 +8,8 @@ namespace SportCalendar.Application.Mapper
     {
         public ActivityMappingProfile()
         {
-            CreateMap<CreateActivityModel, Activity>().ReverseMap();
-            CreateMap<ActivityModel, Activity>().ReverseMap();
+            CreateMap<CreateActivityModel, ActivityEntity>().ReverseMap();
+            CreateMap<ActivityModel, ActivityEntity>().ReverseMap();
         }
     }
 }

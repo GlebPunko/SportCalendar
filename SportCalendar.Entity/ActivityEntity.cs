@@ -1,6 +1,6 @@
 ﻿namespace SportCalendar.Entity
 {
-    public class Activity
+    public class ActivityEntity
     {
         public int Id { get; set; }
         public string ActivityName { get; set; }

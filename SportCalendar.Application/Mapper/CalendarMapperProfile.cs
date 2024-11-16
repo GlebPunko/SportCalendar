@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SportCalendar.Application.Models.Calendar;
-using SportCalendar.Entity;
+using SportCalendar.Entity.RelatedEntity;
 
 namespace SportCalendar.Application.Mapper
 {
@@ -8,8 +8,8 @@ namespace SportCalendar.Application.Mapper
     {
         public CalendarMapperProfile()
         {
-            CreateMap<AddCalendarActivity, CreateCalendarActivityModel>().ReverseMap();
-            CreateMap<DayActivitiesModel, DayActivities>().ReverseMap();
+            CreateMap<AddCalendarActivityRE, CreateCalendarActivityModel>().ReverseMap();
+            CreateMap<DayActivitiesModel, DayActivitiesRE>().ReverseMap();
         }
     }
 }

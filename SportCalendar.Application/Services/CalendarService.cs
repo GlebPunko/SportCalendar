@@ -2,7 +2,7 @@
 using SportCalendar.Application.Interfaces;
 using SportCalendar.Application.Models.Calendar;
 using SportCalendar.DataAccess.Interfaces;
-using SportCalendar.Entity;
+using SportCalendar.Entity.RelatedEntity;
 
 namespace SportCalendar.Application.Services
 {
@@ -31,7 +31,7 @@ namespace SportCalendar.Application.Services
                 throw new Exception("Bad model!"); // TODO will be validate
 
             var isSuccess = await _calendarRepository.AddActivities(
-                _mapper.Map<AddCalendarActivity>(activity));
+                _mapper.Map<AddCalendarActivityRE>(activity));
 
             if (!isSuccess)
                 throw new Exception("Model is not created."); // TODO Will prepare exMiddleware

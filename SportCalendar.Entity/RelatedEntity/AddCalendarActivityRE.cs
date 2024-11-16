@@ -1,6 +1,6 @@
-﻿namespace SportCalendar.Entity
+﻿namespace SportCalendar.Entity.RelatedEntity
 {
-    public class AddCalendarActivity
+    public class AddCalendarActivityRE
     {
         public CalendarActivity Activity { get; set; }
         public DateOnly Date { get; set; }
