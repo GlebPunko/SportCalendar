@@ -7,8 +7,11 @@
 
   <ItemGroup>
     <Folder Include="DI\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportCalendar.Database\SportCalendar.Database.csproj" />
+    <ProjectReference Include="..\SportCalendar.Entity\SportCalendar.Entity.csproj" />
   </ItemGroup>
 
 </Project>
