@@ -2,13 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Middlaware\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportCalendar.Application\SportCalendar.Application.csproj" />
+    <ProjectReference Include="..\SportCalendar.DataAccess\SportCalendar.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
