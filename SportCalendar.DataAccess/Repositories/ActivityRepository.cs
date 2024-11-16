@@ -1,18 +1,24 @@
 ﻿using SportCalendar.DataAccess.Interfaces;
-using System.Diagnostics;
+using SportCalendar.Entity;
 
 namespace SportCalendar.DataAccess.Repositories
 {
     public class ActivityRepository(string connectionString) : MsSqlRepositoryBase(connectionString), IActivityRepository
     {
-        public Task<bool> AddActivity(Activity activity)
+        public async Task<IEnumerable<Activity>> GetActivities(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var sql = "SELECT * FROM activities";
+
+            return await Database.LoadData<Activity>(sql, null, cancellationToken);
         }
 
-        public Task<IEnumerable<Activity>> GetActivities(CancellationToken cancellationToken)
+        public async Task<bool> AddActivity(Activity activity)
         {
-            throw new NotImplementedException();
+            var sql = "INSERT INTO activities (ActivityName, ActivityUnitId) " +
+                 "SELECT @ActivityName, @ActivityUnitId WHERE NOT EXISTS ( " +
+                 "SELECT 1 FROM activities a WHERE a.ActivityName = @ActivityName);";
+
+            return await Database.SaveData(sql, new { activity.ActivityName, activity.ActivityUnitId });
         }
     }
 }
