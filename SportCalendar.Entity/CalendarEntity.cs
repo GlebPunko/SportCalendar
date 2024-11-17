@@ -1,10 +1,9 @@
 ﻿namespace SportCalendar.Entity
 {
-    public class Calendar
+    public class CalendarEntity
     {
         public int Id { get; set; }
         public DateOnly Date { get; set; }
-        public int UnitCount { get; set; }
-        public int ActivityId { get; set; }
+        public bool Done { get; set; }
     }
 }

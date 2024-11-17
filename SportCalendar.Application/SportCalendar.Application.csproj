@@ -6,10 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Mapper\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="DI\" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportCalendar.DataAccess\SportCalendar.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

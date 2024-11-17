@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DI\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Interfaces\" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportCalendar.Database\SportCalendar.Database.csproj" />
+    <ProjectReference Include="..\SportCalendar.Entity\SportCalendar.Entity.csproj" />
   </ItemGroup>
 
 </Project>
