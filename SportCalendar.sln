@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportCalendar.Entity", "Spo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportCalendar.DataAccess", "SportCalendar.DataAccess\SportCalendar.DataAccess.csproj", "{734DEDEE-7343-4405-906A-32F0BAA7A367}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.Database", "SportCalendar.Database\SportCalendar.Database.csproj", "{4C6172D4-BEAD-4D89-A625-C39172C35CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportCalendar.Database", "SportCalendar.Database\SportCalendar.Database.csproj", "{4C6172D4-BEAD-4D89-A625-C39172C35CF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportCalendar.Domain", "SportCalendar.Domain\SportCalendar.Domain.csproj", "{2DEAA660-0B3E-4B20-B576-37A50DD811F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4C6172D4-BEAD-4D89-A625-C39172C35CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C6172D4-BEAD-4D89-A625-C39172C35CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C6172D4-BEAD-4D89-A625-C39172C35CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DEAA660-0B3E-4B20-B576-37A50DD811F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DEAA660-0B3E-4B20-B576-37A50DD811F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DEAA660-0B3E-4B20-B576-37A50DD811F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DEAA660-0B3E-4B20-B576-37A50DD811F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
