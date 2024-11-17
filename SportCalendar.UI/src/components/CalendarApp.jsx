@@ -37,7 +37,7 @@ const CalendarApp = () => {
                 <span>14</span>
                 <span>15</span>
                 <span>16</span>
-                <span>17</span>
+                <span className="current-day">17</span>
                 <span>18</span>
                 <span>19</span>
                 <span>20</span>
