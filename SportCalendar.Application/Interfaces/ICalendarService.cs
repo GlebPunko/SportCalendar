@@ -6,6 +6,6 @@ namespace SportCalendar.Application.Interfaces
     {
         public Task<IEnumerable<DayActivitiesModel>> GetDayActivities(DateOnly date, CancellationToken cancellationToken);
         public Task<bool> ChangeIsDone(UpdateActivityDoneModel model);
-        public Task AddActivitiesInDay(CreateCalendarActivityModel activity);
+        public Task<bool> AddActivitiesInDay(CreateCalendarActivityModel activity);
     }
 }

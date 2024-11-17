@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using SportCalendar.Application.Interfaces;
 using SportCalendar.Application.Models.Calendar;
+using SportCalendar.Application.Validators.Calendar;
 using SportCalendar.DataAccess.Interfaces;
+using SportCalendar.Domain.CustomExceptions;
+using SportCalendar.Domain.CustomExceptions.Calendar;
 using SportCalendar.Entity.RelatedEntity;
+using System.Diagnostics;
 
 namespace SportCalendar.Application.Services
 {
@@ -10,11 +15,16 @@ namespace SportCalendar.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly ICalendarRepository _calendarRepository;
+        private readonly CreateCalendarActivityValidator _createValidator;
+        private readonly UpdateActivityDoneValidator _updateValidator;
 
-        public CalendarService(ICalendarRepository calendarRepository, IMapper mapper)
+        public CalendarService(ICalendarRepository calendarRepository, IMapper mapper, 
+            UpdateActivityDoneValidator updateValidator, CreateCalendarActivityValidator createValidator)
         {
             _calendarRepository = calendarRepository;
             _mapper = mapper;
+            _updateValidator = updateValidator;
+            _createValidator = createValidator;
         }
 
         public async Task<IEnumerable<DayActivitiesModel>> GetDayActivities(DateOnly date, CancellationToken cancellationToken)
@@ -23,29 +33,33 @@ namespace SportCalendar.Application.Services
                 await _calendarRepository.GetDayActivities(date, cancellationToken));
         }
 
-        public async Task AddActivitiesInDay(CreateCalendarActivityModel activity)
+        public async Task<bool> AddActivitiesInDay(CreateCalendarActivityModel activity)
         {
-            if (activity.Activity is null ||
-                activity.Date == default ||
-                activity.Activity.ActivityId == default)
-                throw new Exception("Bad model!"); // TODO will be validate
+            var result = await _createValidator.ValidateAsync(activity);
+
+            if (!result.IsValid)
+                throw new RequestIsNotValidException();
 
             var isSuccess = await _calendarRepository.AddActivities(
                 _mapper.Map<AddCalendarActivityRE>(activity));
 
             if (!isSuccess)
-                throw new Exception("Model is not created."); // TODO Will prepare exMiddleware
+                throw new ActivitiesInDayNotAddedException();
+
+            return isSuccess;
         }
 
         public async Task<bool> ChangeIsDone(UpdateActivityDoneModel model)
         {
-            if (model.CalendarId == default || model.ActivityId == default)
-                throw new Exception("Bad model!"); // TODO Will validate
+            var result = await _updateValidator.ValidateAsync(model);
+
+            if (!result.IsValid)
+                throw new RequestIsNotValidException();
 
             var isSuccess = await _calendarRepository.ChangeIsDone(model.IsDone, model.ActivityId, model.CalendarId);
 
             if (!isSuccess)
-                throw new Exception("Not changed!");
+                throw new ActivityDoneIsNotUpdatedException();
 
             return model.IsDone;
         }

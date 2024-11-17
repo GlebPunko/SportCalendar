@@ -4,6 +4,10 @@
     {
         Unknown,
         Success,
-        Error_Unknown
+        Error_Unknown,
+        Error_ActivitiesInDayNotAdded,
+        Error_ActivityDoneIsNotUpdated,
+        Error_ActivityIsNotAdded,
+        Error_RequestIsNotValid
     }
 }

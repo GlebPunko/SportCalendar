@@ -5,6 +5,6 @@ namespace SportCalendar.Application.Interfaces
     public interface IActivityService
     {
         public Task<IEnumerable<ActivityModel>> GetActivities(CancellationToken cancellationToken);
-        public Task AddActivity(CreateActivityModel activity);
+        public Task<bool> AddActivity(CreateActivityModel activity);
     }
 }

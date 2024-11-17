@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SportCalendar.DataAccess\SportCalendar.DataAccess.csproj" />
+    <ProjectReference Include="..\SportCalendar.Domain\SportCalendar.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using SportCalendar.Application.Interfaces;
 using SportCalendar.Application.Models.Activity;
+using SportCalendar.Application.Validators.Activity;
 using SportCalendar.DataAccess.Interfaces;
+using SportCalendar.Domain.CustomExceptions;
+using SportCalendar.Domain.CustomExceptions.Activity;
 using SportCalendar.Entity;
 
 namespace SportCalendar.Application.Services
@@ -10,11 +13,13 @@ namespace SportCalendar.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IActivityRepository _activateRepository;
+        private readonly CreateActivityValidator _createValidator;
 
-        public ActivityService(IActivityRepository activityRepository, IMapper mapper)
+        public ActivityService(IActivityRepository activityRepository, IMapper mapper, CreateActivityValidator createValidator)
         {
             _activateRepository = activityRepository;
             _mapper = mapper;
+            _createValidator = createValidator;
         }
 
         public async Task<IEnumerable<ActivityModel>> GetActivities(CancellationToken cancellationToken)
@@ -22,15 +27,19 @@ namespace SportCalendar.Application.Services
             return _mapper.Map<IEnumerable<ActivityModel>>(await _activateRepository.GetActivities(cancellationToken));
         }
             
-        public async Task AddActivity(CreateActivityModel activity)
+        public async Task<bool> AddActivity(CreateActivityModel activity)
         {
-            if (string.IsNullOrEmpty(activity.ActivityName) || activity.ActivityUnitId <= 0)
-                throw new Exception("model is bad."); // TODO Will be validate
+            var result = await _createValidator.ValidateAsync(activity);
+
+            if (!result.IsValid)
+                throw new RequestIsNotValidException();
 
             var isSuccess = await _activateRepository.AddActivity(_mapper.Map<ActivityEntity>(activity));
 
             if (!isSuccess)
-                throw new Exception("Activity is not added!");// TODO Will be prepare in exMiddleware
+                throw new ActivityIsNotAddedException();
+
+            return isSuccess;
         }
     }
 }
