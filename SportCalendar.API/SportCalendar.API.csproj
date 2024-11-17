@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Middlaware\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SportCalendar.Application\SportCalendar.Application.csproj" />
     <ProjectReference Include="..\SportCalendar.DataAccess\SportCalendar.DataAccess.csproj" />
     <ProjectReference Include="..\SportCalendar.Domain\SportCalendar.Domain.csproj" />
