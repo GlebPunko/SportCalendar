@@ -7,9 +7,13 @@ namespace SportCalendar.DataAccess.Repositories
     {
         public async Task<IEnumerable<ActivityEntity>> GetActivities(CancellationToken cancellationToken)
         {
-            var sql = "SELECT * FROM activities";
+            var sql = "SELECT * FROM [dbo].activities;";
 
-            return await Database.LoadData<ActivityEntity>(sql, null, cancellationToken);
+            var res = await Database.LoadData<ActivityEntity>(sql, null, cancellationToken);
+
+            Console.WriteLine(res?.Count());
+
+            return res;
         }
 
         public async Task<bool> AddActivity(ActivityEntity activity)

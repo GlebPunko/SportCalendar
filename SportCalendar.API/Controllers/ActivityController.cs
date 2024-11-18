@@ -16,19 +16,15 @@ namespace SportCalendar.API.Controllers
         }
 
         [HttpGet("get-act")]
-        public async Task<IActionResult> GetActivities(CancellationToken cancellationToken)
+        public async Task GetActivities(CancellationToken cancellationToken)
         {
-            var result = await _activityService.GetActivities(cancellationToken);
-
-            return Ok(result);
+            HttpContext.Items["data"] = await _activityService.GetActivities(cancellationToken);
         }
 
         [HttpPost("create-act")]
-        public async Task<IActionResult> CreateActivity([FromBody] CreateActivityModel model)
+        public async Task CreateActivity([FromBody] CreateActivityModel model)
         {
-            await _activityService.AddActivity(model);
-
-            return Created();
+            HttpContext.Items["data"] = await _activityService.AddActivity(model);
         }
     }
 }

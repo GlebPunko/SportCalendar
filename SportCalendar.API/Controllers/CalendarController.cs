@@ -16,27 +16,21 @@ namespace SportCalendar.API.Controllers
         }
 
         [HttpGet("get-day-act")]
-        public async Task<IActionResult> GetDayActivities([FromQuery] DateOnly date, CancellationToken cancellationToken)
+        public async Task GetDayActivities([FromQuery] string date, CancellationToken cancellationToken)
         {
-            var result = await _calendarService.GetDayActivities(date, cancellationToken);
-
-            return Ok(result);
+            HttpContext.Items["data"] = await _calendarService.GetDayActivities(date, cancellationToken);
         }
 
         [HttpPost("create-act-day")]
-        public async Task<IActionResult> CreateActivitiesInDay([FromBody] CreateCalendarActivityModel activity)
+        public async Task CreateActivitiesInDay([FromBody] CreateCalendarActivityModel activity)
         {
-            await _calendarService.AddActivitiesInDay(activity);
-
-            return Created();
+            HttpContext.Items["data"] = await _calendarService.AddActivitiesInDay(activity);
         }
 
         [HttpPost("upt-done")]
-        public async Task<IActionResult> UpdateIsDone([FromBody] UpdateActivityDoneModel model)
+        public async Task UpdateIsDone([FromBody] UpdateActivityDoneModel model)
         {
-            var result = await _calendarService.ChangeIsDone(model);
-
-            return Ok(result);
+            HttpContext.Items["data"] = await _calendarService.ChangeIsDone(model);
         }
     }
 }
