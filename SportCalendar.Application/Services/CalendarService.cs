@@ -27,8 +27,16 @@ namespace SportCalendar.Application.Services
             _createValidator = createValidator;
         }
 
-        public async Task<IEnumerable<DayActivitiesModel>> GetDayActivities(DateOnly date, CancellationToken cancellationToken)
+        public async Task<IEnumerable<DayActivitiesModel>> GetDayActivities(string dateString, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrWhiteSpace(dateString))
+                throw new DateStringIsNullException();
+
+            DateOnly.TryParse(dateString, out DateOnly date);
+
+            if (date == default)
+                throw new DateIsNotParsedException();
+
             return _mapper.Map<IEnumerable<DayActivitiesModel>>(
                 await _calendarRepository.GetDayActivities(date, cancellationToken));
         }

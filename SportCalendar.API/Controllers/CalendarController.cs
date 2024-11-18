@@ -16,7 +16,7 @@ namespace SportCalendar.API.Controllers
         }
 
         [HttpGet("get-day-act")]
-        public async Task GetDayActivities([FromQuery] DateOnly date, CancellationToken cancellationToken)
+        public async Task GetDayActivities([FromQuery] string date, CancellationToken cancellationToken)
         {
             HttpContext.Items["data"] = await _calendarService.GetDayActivities(date, cancellationToken);
         }

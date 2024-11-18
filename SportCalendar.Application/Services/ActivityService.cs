@@ -24,7 +24,12 @@ namespace SportCalendar.Application.Services
 
         public async Task<IEnumerable<ActivityModel>> GetActivities(CancellationToken cancellationToken)
         {
-            return _mapper.Map<IEnumerable<ActivityModel>>(await _activateRepository.GetActivities(cancellationToken));
+            var result = await _activateRepository.GetActivities(cancellationToken);
+
+            if(!result.Any())
+                Console.WriteLine("Result is null!");
+
+            return _mapper.Map<IEnumerable<ActivityModel>>(result);
         }
             
         public async Task<bool> AddActivity(CreateActivityModel activity)

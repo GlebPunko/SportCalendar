@@ -8,6 +8,8 @@
         Error_ActivitiesInDayNotAdded,
         Error_ActivityDoneIsNotUpdated,
         Error_ActivityIsNotAdded,
-        Error_RequestIsNotValid
+        Error_RequestIsNotValid,
+        Error_DateIsNotParsed,
+        Error_DateStringIsNull
     }
 }
