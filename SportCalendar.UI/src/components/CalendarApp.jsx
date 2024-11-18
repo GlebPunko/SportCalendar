@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FormDialog from "./AddActivityInDayModel";
 
 const CalendarApp = () => {
 	const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -39,12 +40,9 @@ const CalendarApp = () => {
 
 	const handleDayClick = (day) => {
 		const clickedDate = new Date(currentYear, currentMonth, day);
-		const today = new Date();
-
-		if(clickedDate >= today) {
-			setSelectedDate(clickedDate);
-			setShowPopup(!showPopup);
-		}
+		setSelectedDate(clickedDate);
+		
+		setShowPopup(true);
 	}
 
   return (
@@ -76,7 +74,7 @@ const CalendarApp = () => {
 											? 'current-day' 
 											: '' 
 										}
-										onClick={handleDayClick}
+										onClick={() => handleDayClick(day + 1)}
 									>
 										{day + 1}
 									</span>
@@ -84,19 +82,7 @@ const CalendarApp = () => {
             </div>
         </div>
         <div className="events">
-            <div className="event-popup">
-                <div className="time-input">
-                    <div className="event-popup-time">
-                        <input type="number" name = "hours" min={0} max={24} className="hours"/>
-                        <input type="number" name = "minutes" min={0} max={24} className="minutes"/>
-                        <textarea placeholder="Enter sport activity (Maximum 10 characters)"></textarea>
-                        <button className="event-popup-btn">Add sport activity</button>
-                        <button className="close-event-popup">
-                            <i className="bx bx-x"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+			<FormDialog open={showPopup} setOpen={setShowPopup} clickedDate={selectedDate} /> 
             <div className="event">
                 <div className="event-date-wrapper">
                     <div className="event-date">May, 15, 2024</div>
